@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vedant Jogi - Cybersecurity Professional</title>
+   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .bg-cyber {
+      background: linear-gradient(to right, rgba(4, 16, 36, 0.5), rgba(124, 174, 255, 0.5));
+    }
+    .text-glow {
+      text-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+    }
+    .border-glow {
+      box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+    }
+    .slide-in {
+      animation: slideIn 0.5s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .typing-effect::after {
+      content: '|';
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      from, to { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-200 min-h-screen" x-data="{ activeSection: 'home', mobileMenu: false }">
+  <!-- Navigation -->
+  <nav class="bg-gray-800 fixed w-full z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <span class="text-blue-400 text-xl font-bold text-glow">Vedant_Jogi</span>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <a @click.prevent="activeSection = 'home'" href="#home" class="px-3 py-2 rounded-md text-sm font-medium" :class="activeSection === 'home' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'">Home</a>
+              <a @click.prevent="activeSection = 'about'" href="#about" class="px-3 py-2 rounded-md text-sm font-medium" :class="activeSection === 'about' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'">About</a>
+              <a @click.prevent="activeSection = 'experience'" href="#experience" class="px-3 py-2 rounded-md text-sm font-medium" :class="activeSection === 'experience' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'">Experience</a>
+              <a @click.prevent="activeSection = 'skills'" href="#skills" class="px-3 py-2 rounded-md text-sm font-medium" :class="activeSection === 'skills' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'">Skills</a>
+              <a @click.prevent="activeSection = 'education'" href="#education" class="px-3 py-2 rounded-md text-sm font-medium" :class="activeSection === 'education' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'">Education</a>
+              <a @click.prevent="activeSection = 'certifications'" href="#certifications" class="px-3 py-2 rounded-md text-sm font-medium" :class="activeSection === 'certifications' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'">Certifications</a>
+              <a @click.prevent="activeSection = 'contact'" href="#contact" class="px-3 py-2 rounded-md text-sm font-medium" :class="activeSection === 'contact' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'">Contact</a>
+            </div>
+          </div>
+        </div>
+        <div class="md:hidden">
+          <button @click="mobileMenu = !mobileMenu" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div x-show="mobileMenu" class="md:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a @click.prevent="activeSection = 'home'; mobileMenu = false" href="#home" class="block px-3 py-2 rounded-md text-base font-medium" :class="activeSection === 'home' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'">Home</a>
+        <a @click.prevent="activeSection = 'about'; mobileMenu = false" href="#about" class="block px-3 py-2 rounded-md text-base font-medium" :class="activeSection === 'about' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'">About</a>
+        <a @click.prevent="activeSection = 'experience'; mobileMenu = false" href="#experience" class="block px-3 py-2 rounded-md text-base font-medium" :class="activeSection === 'experience' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'">Experience</a>
+        <a @click.prevent="activeSection = 'skills'; mobileMenu = false" href="#skills" class="block px-3 py-2 rounded-md text-base font-medium" :class="activeSection === 'skills' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'">Skills</a>
+        <a @click.prevent="activeSection = 'education'; mobileMenu = false" href="#education" class="block px-3 py-2 rounded-md text-base font-medium" :class="activeSection === 'education' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'">Education</a>
+        <a @click.prevent="activeSection = 'certifications'; mobileMenu = false" href="#certifications" class="block px-3 py-2 rounded-md text-base font-medium" :class="activeSection === 'certifications' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'">Certifications</a>
+        <a @click.prevent="activeSection = 'contact'; mobileMenu = false" href="#contact" class="block px-3 py-2 rounded-md text-base font-medium" :class="activeSection === 'contact' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="pt-24 text-gray-800">
+    <!-- Home Section -->
+    <section x-show="activeSection === 'home'" id="home" class="min-h-screen flex items-center justify-center bg-cyber">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <img src="C:\Users\jogiv\OneDrive\Desktop\cartoon.jpg" alt="Vedant Jogi" class="mx-auto rounded-full border-4 border-blue-500 border-glow"><br><br>
+        <h1 class="text-5xl sm:text-7xl font-bold mb-5 text-white typing-effect" id="typewriter">Vedant Jogi</h1><br>
+        <p class="text-2xl sm:text-3xl text-blue-400 mb-8 slide-in">Cybersecurity Professional</p>
+        <div class="flex justify-center space-x-4 slide-in" style="animation-delay: 0.2s">
+          <a href="mailto:jogivedant77@gmail.com" class="text-white hover:text-blue-400 transition-colors">
+            <i class="fas fa-envelope text-2xl"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/vedant-jogi-a91108288/" target="_blank" class="text-white hover:text-blue-400 transition-colors">
+            <i class="fab fa-linkedin text-2xl"></i>
+          </a>
+          <a href="https://github.com/Vedantjogi07/" target="_blank" class="text-white hover:text-blue-400 transition-colors">
+            <i class="fab fa-github text-2xl"></i>
+          </a>
+        </div>
+        <div class="mt-12 slide-in" style="animation-delay: 0.4s">
+          <button @click="
+            activeSection = 'about';
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section x-show="activeSection = 'about' id="about" class="py-20 bg-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12 text-blue-400">About Me</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold mb-4 text-white">Professional Overview</h3>
+            <p class="text-gray-300 mb-4">
+              I am a cybersecurity professional passionate about protecting digital infrastructure and systems from threats. With expertise in various areas including threat analysis, vulnerability management, and IAM principles, I am committed to delivering error-free, engaging, and high-quality solutions.
+            </p>
+            <p class="text-gray-300">
+              My objective is to utilize my expert cybersecurity skills to identify vulnerabilities, implement robust security measures, and create training materials to enhance organizational security postures.
+            </p>
+          </div>
+          <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold mb-4 text-white">Professional Traits</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Strong written and verbal communication skills
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Passionate about applying knowledge to real-world projects
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Eager to explore and think outside the box
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Decision-making and leadership capabilities
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Ability to work effectively under supervision
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Strong analytical and problem-solving skills
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section x-show="activeSection === 'experience'" id="experience" class="py-20 bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12 text-blue-400">Professional Experience</h2>
+        <div class="space-y-12">
+          <div class="bg-gray-800 p-6 rounded-lg shadow-lg border-l-4 border-blue-500">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+              <h3 class="text-xl font-semibold text-white">Cybersecurity Job Simulation</h3>
+              <div class="flex items-center mt-2 md:mt-0">
+                <span class="text-blue-400 mr-2">Mastercard</span>
+                <span class="text-gray-400">Sept 2024</span>
+              </div>
+            </div>
+            <ul class="space-y-2 text-gray-300 mt-4">
+              <li class="flex items-start">
+                <i class="fas fa-shield-alt text-blue-400 mr-2 mt-1"></i>
+                <span>Acted as a Security Awareness Analyst to tackle phishing threats</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-search text-blue-400 mr-2 mt-1"></i>
+                <span>Identified areas requiring enhanced security measures</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-chalkboard-teacher text-blue-400 mr-2 mt-1"></i>
+                <span>Created training materials to boost team security knowledge</span>
+              </li>
+            </ul>
+            <div class="mt-4 flex justify-center">
+              <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/mastercard/vcKAB5yYAgvemepGQ_Mastercard_LyTeSDb9MK8TGQbXr_1727593962036_completion_certificate.pdf" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors">
+                View Certificate
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-gray-800 p-6 rounded-lg shadow-lg border-l-4 border-blue-500">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+              <h3 class="text-xl font-semibold text-white">Cybersecurity Analyst Job Simulation</h3>
+              <div class="flex items-center mt-2 md:mt-0">
+                <span class="text-blue-400 mr-2">Tata Consultancy Services</span>
+                <span class="text-gray-400">Feb 2024</span>
+              </div>
+            </div>
+            <ul class="space-y-2 text-gray-300 mt-4">
+              <li class="flex items-start">
+                <i class="fas fa-user-lock text-blue-400 mr-2 mt-1"></i>
+                <span>Focused on Identity and Access Management (IAM) principles</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-graduation-cap text-blue-400 mr-2 mt-1"></i>
+                <span>Acquired expertise in cybersecurity practices and strategic alignment</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-file-alt text-blue-400 mr-2 mt-1"></i>
+                <span>Delivered comprehensive documentation and presentations</span>
+              </li>
+            </ul>
+            <div class="mt-4 flex justify-center">
+              <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Tata/gmf3ypEXBj2wvfQWC_Tata%20Group_LyTeSDb9MK8TGQbXr_1709125109669_completion_certificate.pdf" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors">
+                View Certificate
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section x-show="activeSection === 'skills'" id="skills" class="py-20 bg-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12 text-blue-400">Technical Skills</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-gray-900 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-code text-blue-400 text-2xl mr-4"></i>
+              <h3 class="text-xl font-semibold text-white">Programming</h3>
+            </div>
+            <ul class="space-y-2 text-gray-300">
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                C/C++ Programming
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Python Programming
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-900 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-shield-alt text-blue-400 text-2xl mr-4"></i>
+              <h3 class="text-xl font-semibold text-white">Security</h3>
+            </div>
+            <ul class="space-y-2 text-gray-300">
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Cybersecurity Analysis
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Identity and Access Management
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Threat Analysis
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Vulnerability Management
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-900 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-laptop-code text-blue-400 text-2xl mr-4"></i>
+              <h3 class="text-xl font-semibold text-white">Systems</h3>
+            </div>
+            <ul class="space-y-2 text-gray-300">
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Linux
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Computer Networks
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Operating System
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                DBMS
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-900 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-brain text-blue-400 text-2xl mr-4"></i>
+              <h3 class="text-xl font-semibold text-white">Core Skills</h3>
+            </div>
+            <ul class="space-y-2 text-gray-300">
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Problem Solving
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Analytical Thinking
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-900 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-comments text-blue-400 text-2xl mr-4"></i>
+              <h3 class="text-xl font-semibold text-white">Communication</h3>
+            </div>
+            <ul class="space-y-2 text-gray-300">
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Interpersonal Communication
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Technical Documentation
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                Presentation Skills
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section x-show="activeSection === 'education'" id="education" class="py-20 bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12 text-blue-400">Education</h2>
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <div class="flex flex-col md:flex-row justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-semibold text-white">B.Tech in Information Technology</h3>
+              <p class="text-blue-400">JSPM's Rajarshi Shahu College of Engineering, Tathawade</p>
+            </div>
+            <div class="text-gray-400 mt-2 md:mt-0">Aug 2023 - Present</div>
+          </div>
+          <p class="text-gray-300 mt-4">
+            In my firstAlso  year of engineering, I developed skills in:
+          </p>
+          <ul class="mt-4 space-y-2 text-gray-300">
+            <li class="flex items-start">
+              <i class="fas fa-graduation-cap text-blue-400 mr-2 mt-1"></i>
+              <span>C/C++ and Python programming languages</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-shield-alt text-blue-400 mr-2 mt-1"></i>
+              <span>Cybersecurity fundamentals including threat analysis and vulnerability management</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-certificate text-blue-400 mr-2 mt-1"></i>
+              <span>Completed Google Career Certificates (Cybersecurity Analyst)</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-laptop-code text-blue-400 mr-2 mt-1"></i>
+              <span>Completed job simulations from TCS and Mastercard</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section x-show="activeSection === 'certifications'" id="certifications" class="py-20 bg-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12 text-blue-400">Certifications</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center justify-center mb-4">
+              <i class="fas fa-certificate text-blue-400 text-4xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-center text-white mb-2">Cybersecurity Analyst Job Simulation</h3>
+            <p class="text-center text-blue-400">Tata Consultancy Services</p>
+            <div class="mt-4 flex justify-center">
+              <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Tata/gmf3ypEXBj2wvfQWC_Tata%20Group_LyTeSDb9MK8TGQbXr_1709125109669_completion_certificate.pdf" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors">
+                View Certificate
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center justify-center mb-4">
+              <i class="fas fa-certificate text-blue-400 text-4xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-center text-white mb-2">Cybersecurity Job Simulation</h3>
+            <p class="text-center text-blue-400">Mastercard and New York Jobs CEO Council</p>
+            <div class="mt-4 flex justify-center">
+              <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/mastercard/vcKAB5yYAgvemepGQ_Mastercard_LyTeSDb9MK8TGQbXr_1727593962036_completion_certificate.pdf" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors">
+                View Certificate
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center justify-center mb-4">
+              <i class="fas fa-certificate text-blue-400 text-4xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-center text-white mb-2">Cybersecurity Professional Certificate</h3>
+            <p class="text-center text-blue-400">Google Career Certificates</p>
+            <div class="mt-4 flex justify-center">
+              <a href="https://coursera.org/share/d4580fee4eb5606ecf07541a302406da" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors">
+                View Certificate
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section x-show="activeSection === 'contact'" id="contact" class="py-20 bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12 text-blue-400">Contact Me</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold mb-6 text-white">Get In Touch</h3>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <i class="fas fa-envelope text-blue-400 text-xl w-8"></i>
+                <a href="mailto:jogivedant77@gmail.com" class="text-gray-300 hover:text-blue-400 transition-colors">jogivedant77@gmail.com</a>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-phone text-blue-400 text-xl w-8"></i>
+                <a href="tel:+918828419248" class="text-gray-300 hover:text-blue-400 transition-colors">+91 8828419248</a>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-map-marker-alt text-blue-400 text-xl w-8"></i>
+                <span class="text-gray-300">Pimpri-Chinchwad, Pune, Maharashtra, India</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fab fa-linkedin text-blue-400 text-xl w-8"></i>
+                <a href="https://www.linkedin.com/in/vedant-jogi-a91108288/" target="_blank" class="text-gray-300 hover:text-blue-400 transition-colors">Vedant Jogi - LinkedIn</a>
+              </div>
+              <div class="flex items-center mt-2">
+                <i class="fab fa-instagram text-blue-400 text-xl w-8"></i>
+                <a href="https://www.instagram.com/vedant_jogi__07?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-gray-300 hover:text-blue-400 transition-colors">vedant_jogi__07</a>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h3 class="text-xl font-semibold mb-6 text-white">Send Me a Message</h3>
+            <form class="space-y-4">
+              <div>
+                <label for="name" class="block text-gray-300 mb-1">Name</label>
+                <input type="text" id="name" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+              </div>
+              <div>
+                <label for="email" class="block text-gray-300 mb-1">Email</label>
+                <input type="email" id="email" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+              </div>
+              <div>
+                <label for="message" class="block text-gray-300 mb-1">Message</label>
+                <textarea id="message" rows="4" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+              </div>
+              <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors">Send Message</button>
+            </form>
+          </div>
+        </div>
+    </div>
+</div>
+</section>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-800 py-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="flex flex-col md:flex-row justify-between items-center">
+    <div class="text-center md:text-left mb-4 md:mb-0">
+      <span class="text-blue-400 text-xl font-bold text-glow">Vedant Jogi</span>
+      <p class="text-gray-400 mt-2">Cybersecurity Professional</p>
+    </div>
+    <div class="flex space-x-6">
+    </div>
+  </div>
+  <div class="mt-8 text-center">
+    <p class="text-gray-400">&copy; 2025 Vedant Jogi. All rights reserved.</p>
+  </div>
+</div>
+</footer>
+
+<script>
+const text = "Vedant Jogi";
+const typewriter = document.getElementById('typewriter');
+let i = 0;
+let forward = true;
+
+function type() {
+  if (forward) {
+    if (i < text.length) {
+      i++;
+      typewriter.textContent = text.substring(0, i);
+      setTimeout(type, 150);
+    } else {
+      forward = false;
+      setTimeout(type, 1000); // pause at full text
+    }
+  } else {
+    if (i > 0) {
+      i--;
+      typewriter.textContent = text.substring(0, i);
+      setTimeout(type, 100);
+    } else {
+      forward = true;
+      setTimeout(type, 500); // pause before typing again
+    }
+  }
+}
+
+window.addEventListener('load', () => {
+  type();
+});
+
+// Add slide-in animation to sections as they come into view
+document.addEventListener('alpine:initialized', () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('slide-in');
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  document.querySelectorAll('section > div > *:not(.slide-in)').forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>
+</body>
+</html>
